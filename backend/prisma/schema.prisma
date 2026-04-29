@@ -1,0 +1,60 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator py {
+  provider = "prisma-client-py"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Movie {
+  id                  Int      @id
+  slug                String   @unique
+  title               String
+  overview            String?
+  posterPath          String?
+  backdropPath        String?
+  releaseDate         String?
+  originalLanguage    String?
+  popularity          Float?
+  voteAverage         Float?
+  voteCount           Int?
+  runtime             Int?
+  tagline             String?
+  genres              String?   // JSON
+  castData            String?   // JSON
+  director            String?
+  budget              BigInt?
+  revenue             BigInt?
+  status              String?
+  adult               Boolean   @default(false)
+  video               Boolean   @default(false)
+  imdbId              String?
+  homepage            String?
+  trailerUrl          String?
+  productionCompanies String?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+
+  @@index([slug])
+  @@index([releaseDate])
+  @@index([popularity])
+  @@index([voteAverage])
+}
+
+model BoxOfficeSnapshot {
+  id            Int      @id @default(autoincrement())
+  movieTitle    String
+  timestamp     DateTime
+  showTime      String?
+  ticketsSold   Int
+  cumulative    Int?
+  city          String?
+  chain         String?
+  deltaPercent  String?
+  createdAt     DateTime @default(now())
+}
