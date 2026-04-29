@@ -1,6 +1,6 @@
 # Movie & Box Office Tracking Platform
 
-A modern, UI-first platform that shows Now Showing, Trending, and Upcoming movies (via TMDB) and optionally tracks live ticket sales from BMS using Playwright + Exa + DeepSeek.
+A modern, UI-first platform that shows Now Showing, Trending, and Upcoming movies (via TMDB) and optionally tracks live ticket sales from BMS using Claude + Codex + Playwright + Exa + DeepSeek.
 
 ## Quick Start
 
